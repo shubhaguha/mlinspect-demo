@@ -19,3 +19,8 @@ Or pull the latest published Docker image and run:
 	docker run -ti --rm --name mlinspect-demo -p 8050:8050 shubhaguha/mlinspect-demo
 
 Visit <http://localhost::8050> in your browser.
+
+License
+---
+
+This library is licensed under the Apache 2.0 License.
