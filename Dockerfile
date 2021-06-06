@@ -1,16 +1,23 @@
+# Use Python 3.8 for core libs e.g. ast
 FROM python:3.8
 
+# Update and install system dependencies for mlinspect
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y graphviz libgraphviz-dev
 
+# Silence TensorFlow warnings
 ENV TF_CPP_MIN_LOG_LEVEL="3"
 
+# Install mlinspect
 RUN git clone https://github.com/stefan-grafberger/mlinspect.git --branch demo
-WORKDIR "/mlinspect"
+WORKDIR /mlinspect
+RUN pip install -e .[dev]
 
-COPY . /mlinspect
+# Install mlinspect-demo
+COPY . /demo
+WORKDIR /demo
+RUN pip install -e .
 
-RUN pip install -e .[dev] dash dash-bootstrap-components
-
+# Run demo application
 EXPOSE 8050
-ENTRYPOINT [ "python", "app.py" ]
+ENTRYPOINT [ "python", "-m", "mlinspect_demo" ]
