@@ -849,7 +849,6 @@ def create_removal_probability_histograms(column, distribution_change):
     layout = go.Layout(title=title, margin=margin, hovermode="x",
                        autosize=False, width=380, height=300)
     figure = go.Figure(data=data, layout=layout)
-    # figure.update_traces(marker_color="orange")
     return dcc.Graph(figure=figure)
 
 
@@ -863,17 +862,7 @@ def convert_dataframe_to_dash_table(df):
         }
         for record in df.to_dict('records')
     ]
-    # data = []
-    # for record in df.to_dict('records'):
-    #     record_dict = {}
-    #     for k, v in record.items():
-    #         if isinstance(v, np.ndarray):
-    #             record_dict[k] = np.array2string(v, precision=2, threshold=2)
-    #         elif isinstance(v, set):
-    #             record_dict[k] = "{" + "\n".join(map(str, v)) + "}"
-    #         else:
-    #             record_dict[k] = str(v)
-    #     data += [record_dict]
+
     return dash_table.DataTable(
         columns=columns,
         data=data,
@@ -967,9 +956,6 @@ def get_result_details(node,
 
 
 if __name__ == "__main__":
-    # Disable TensorFlow warnings in logs
-    # os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-
     # Run Dash server
     debug = "DEBUG" in os.environ
     app.run_server(host="0.0.0.0", debug=debug)
