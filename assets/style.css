@@ -25,18 +25,6 @@
     width: 85%;
 }
 
-#materializefirstoutputrows-num-rows {
-    width: 85%;
-}
-
-#nobiasintroduced-ratio-threshold {
-    width: 85%;
-}
-
-#nobiasintroduced-probability-threshold {
-    width: 85%;
-}
-
 .result-item {
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
