@@ -14,6 +14,10 @@ setup(
         "Programming Language :: Python :: 3.8"
     ],
     packages=find_packages(),
+    package_data={
+        "": ["assets"],
+    },
+
     install_requires=[
         "dash",
         "dash-bootstrap-components",
