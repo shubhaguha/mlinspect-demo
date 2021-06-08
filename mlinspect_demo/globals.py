@@ -1,0 +1,2 @@
+INSPECTOR_RESULT = None
+POS_DICT = None

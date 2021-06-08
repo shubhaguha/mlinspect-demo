@@ -1,7 +1,8 @@
-from dash import Dash
+import dash
 import dash_bootstrap_components as dbc
 
 from .layout import create_layout
+from .callbacks import create_callbacks
 
 
 EXTERNAL_STYLESHEETS = [
@@ -28,7 +29,7 @@ EXTERNAL_SCRIPTS = [
 
 
 def create_app():
-    app = Dash(
+    app = dash.Dash(
         __name__,
         title="mlinspect",
         external_stylesheets=EXTERNAL_STYLESHEETS,
@@ -38,5 +39,7 @@ def create_app():
     app.config.suppress_callback_exceptions = True
 
     app.layout = create_layout()
+
+    create_callbacks(app)
 
     return app

@@ -1,26 +1,14 @@
-import os
-
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
 
-from mlinspect.utils import get_project_root
+from ..example_pipelines import healthcare_pipeline, adult_pipeline
 
 
 CODE_FONT = {"fontFamily": "'Courier New', monospace"}
 STYLE_HIDDEN = {"display": "none"}
 STYLE_SHOWN = {"display": "block"}
-
-
-healthcare_filename = os.path.join(get_project_root(), "example_pipelines",
-                                   "healthcare", "healthcare.py")
-adult_filename = os.path.join(get_project_root(), "example_pipelines",
-                              "adult_demo", "adult_demo.py")
-with open(healthcare_filename) as healthcare_file:
-    healthcare_pipeline = healthcare_file.read()
-with open(adult_filename) as adult_file:
-    adult_pipeline = adult_file.read()
 
 
 def create_layout():
@@ -54,6 +42,7 @@ def create_layout():
                 ], id="pipeline-definition-container", className="container"),
                 # Pipeline execution output
                 html.Div([
+                    # dcc.Store(id="inspector-result"),
                     html.H3("Pipeline Output"),
                     html.Pre(html.Code(id="pipeline-output"), id="pipeline-output-cell"),
                 ], id="pipeline-output-container", className="container", hidden=True),
@@ -63,6 +52,7 @@ def create_layout():
                 # Extracted DAG
                 html.Div([
                     html.H3("Extracted DAG"),
+                    # dcc.Store(id="pos-dict"),
                     dcc.Graph(
                         id="dag",
                         figure=go.Figure(

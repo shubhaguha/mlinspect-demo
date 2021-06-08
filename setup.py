@@ -21,6 +21,7 @@ setup(
     install_requires=[
         "dash",
         "dash-bootstrap-components",
+        "dataclasses-serialization",
 
         # Insufficient because example_pipelines data are not available as package data
         # "mlinspect",
