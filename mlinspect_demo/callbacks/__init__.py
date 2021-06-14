@@ -5,7 +5,7 @@ from dash.dependencies import Input, Output, State
 
 from dataclasses_serialization.json import JSONSerializer
 
-from ..example_pipelines import HEALTHCARE_DATA, ADULT_DATA
+from example_pipelines import HEALTHCARE_DATA, ADULT_DATA
 from ..layout import CODE_FONT, STYLE_HIDDEN, STYLE_SHOWN
 from ..util import execute_inspector_builder, build_graph_object, highlight_problem_nodes, get_result_summary, get_result_details
 

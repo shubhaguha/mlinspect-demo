@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
 
-from ..example_pipelines import healthcare_pipeline, adult_pipeline
+from example_pipelines import HEALTHCARE_PIPELINE, ADULT_PIPELINE
 
 
 CODE_FONT = {"fontFamily": "'Courier New', monospace"}
@@ -36,8 +36,8 @@ def create_layout():
                         dbc.Button("Healthcare", id="healthcare-pipeline", color="secondary", size="lg", className="mr-1"),
                         dbc.Button("Adult Income", id="adult-pipeline", color="secondary", size="lg", className="mr-1"),
                         dbc.Textarea(id="pipeline-textarea", className="mb-3"),
-                        html.Div(healthcare_pipeline, id="healthcare-pipeline-text", hidden=True),
-                        html.Div(adult_pipeline, id="adult-pipeline-text", hidden=True),
+                        html.Div(HEALTHCARE_PIPELINE, id="healthcare-pipeline-text", hidden=True),
+                        html.Div(ADULT_PIPELINE, id="adult-pipeline-text", hidden=True),
                     ]),
                 ], id="pipeline-definition-container", className="container"),
                 # Pipeline execution output

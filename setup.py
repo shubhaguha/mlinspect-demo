@@ -16,6 +16,7 @@ setup(
     packages=find_packages(),
     package_data={
         "": ["assets"],
+        "example_pipelines": ["healthcare", "adult"],
     },
 
     install_requires=[
