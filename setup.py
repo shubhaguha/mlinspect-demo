@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name="mlinspect-demo",
     version="1.0.0",
-    description="Application to demo `mlinspect`",
+    description="Web app that demos the features of `mlinspect`",
     url="https://github.com/shubhaguha/mlinspect-demo",
     license="Apache License 2.0",
     python_requires="==3.8.*",
@@ -18,16 +18,10 @@ setup(
         "": ["assets"],
         "example_pipelines": ["healthcare", "adult"],
     },
-
     install_requires=[
         "dash",
         "dash-bootstrap-components",
         "dataclasses-serialization",
-
-        # Insufficient because example_pipelines data are not available as package data
-        # "mlinspect",
+        "mlinspect[dev] @ git+https://github.com/stefan-grafberger/mlinspect.git@demo",
     ],
-    # dependency_links=[
-    #     "git+https://github.com/stefan-grafberger/mlinspect.git@demo",
-    # ],
 )

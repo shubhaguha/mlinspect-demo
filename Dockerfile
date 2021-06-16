@@ -8,11 +8,6 @@ RUN apt-get install -y graphviz libgraphviz-dev
 # Silence TensorFlow warnings
 ENV TF_CPP_MIN_LOG_LEVEL="3"
 
-# Install mlinspect
-RUN git clone https://github.com/stefan-grafberger/mlinspect.git --branch demo
-WORKDIR /mlinspect
-RUN pip install -e .[dev]
-
 # Install mlinspect-demo
 COPY . /demo
 WORKDIR /demo
