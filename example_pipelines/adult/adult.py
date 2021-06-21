@@ -17,11 +17,7 @@ test_data = pd.read_csv("example_pipelines/adult/test.csv", na_values='?', index
 #train_data = train_data[train_data['education-num'] >= 10]
 #train_data = train_data[train_data['marital-status'] == 'Married-civ-spouse']
 #train_data = train_data[train_data['capital-gain'] > 0]
-#train_data = train_data[train_data['native-country'].notna()]
-#train_data = train_data[train_data['income-per-year'].notna()]
-#train_data = train_data[train_data['occupation'].notna() & train_data['native-country'].notna()
-#                        & train_data['income-per-year'].notna()]
-#train_data = train_data[train_data['occupation'].notna()]
+#train_data = train_data[train_data['native-country'].notna() & train_data['income-per-year'].notna()]
 train_data = train_data.dropna()
 test_data = test_data.dropna()
 
@@ -44,5 +40,5 @@ nested_income_pipeline = Pipeline([
 
 nested_income_pipeline.fit(train_data, train_labels)
 
-print("Mean train accuracy:", nested_income_pipeline.score(test_data, test_labels))
-print("Mean test accuracy:", nested_income_pipeline.score(train_data, train_labels))  # Use separate test set + load additional file or not
+print("Mean train accuracy:", nested_income_pipeline.score(train_data, train_labels))
+print("Mean test accuracy:", nested_income_pipeline.score(test_data, test_labels))  # Use separate test set + load additional file or not
