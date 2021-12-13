@@ -19,8 +19,8 @@ setup(
         "example_pipelines": ["healthcare", "adult"],
     },
     install_requires=[
-        "dash",
-        "dash-bootstrap-components",
+        "dash<2",
+        "dash-bootstrap-components<1",
         "dataclasses-serialization",
         "mlinspect[dev] @ git+https://github.com/stefan-grafberger/mlinspect.git@demo",
     ],
